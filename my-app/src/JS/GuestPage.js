@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
-import { Route, useRouteMatch } from "react-router-dom"
+import CreateNewNav from "./CreateGuestNav";
+import { Route, useRouteMatch, NavLink, Link, Switch } from "react-router-dom"
 
 function GuestList() {
 	const [guestList, setGuestList] = useState([]);
@@ -41,9 +42,12 @@ function GuestList() {
 	return (
 		<div>
 			<p>I am Guest!</p>
-			<Route exact path={match.url}>
-				<CreateNewGuest />
-			</Route>
+			<CreateNewNav />
+			{/* <Switch>
+				<Route exact path="/CreateNewGuest">
+					<CreateNewGuest />
+				</Route>
+			</Switch> */}
 
 			<GuestsFilter
 				category={selectedCategory}
