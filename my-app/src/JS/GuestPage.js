@@ -1,86 +1,79 @@
 import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
+import CreateNewGuest from "./CreateNewGuest";
+import { Route, useRouteMatch } from "react-router-dom"
 
 function GuestList() {
-    const [guestList, setGuestList] = useState([]); 
-    const [selectedCategory, setSelectedCategory] = useState("All");
+	const [guestList, setGuestList] = useState([]);
+	const [selectedCategory, setSelectedCategory] = useState("All");
+	const match = useRouteMatch();
 
-    useEffect(() => {
-        fetch("http://localhost:3000/wedding_guests")
-            .then((resp) => resp.json())
-            .then((guestList) => setGuestList(guestList));
-        }, []);
+	useEffect(() => {
+		fetch("http://localhost:3000/wedding_guests")
+			.then((resp) => resp.json())
+			.then((guestList) => setGuestList(guestList));
+	}, []);
 
-    function handleCategoryChange() {
-        setSelectedCategory(selectedCategory)
-        }
+	function handleCategoryChange() {
+		setSelectedCategory(selectedCategory)
+	}
 
-    function handleUpdateTask(updatedGuest) {
-        const updatedGuests = guestList.map((guest) => {
-            if (guest.id === updatedGuests.id) {
-                return updatedGuest;
-            } else {
-                return guest;
-            }
-        });
-        setGuestList(updatedGuests);
-    }
+	function handleUpdateTask(updatedGuest) {
+		const updatedGuests = guestList.map((guest) => {
+			if (guest.id === updatedGuests.id) {
+				return updatedGuest;
+			} else {
+				return guest;
+			}
+		});
+		setGuestList(updatedGuests);
+	}
 
-    const guestsToDisplay = guestList.filter((guest => {
-        if (handleCategoryChange === "All") return true;
+	const guestsToDisplay = guestList.filter((guest => {
+		if (handleCategoryChange === "All") return true;
 
-        return guest.selectedCategory === handleCategoryChange;
-    }));
-    
-    
+		return guest.selectedCategory === handleCategoryChange;
+	}));
 
-        return (
-            <div>
-                <p>I am Guest!</p>
-                <form>
-                    <label>
-                        Guest Name:
-                        <input type="text" name="name" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                <form>
-                    <label>
-                        Content:
-                        <input type="text" name="content" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                <GuestsFilter 
-                    category={selectedCategory}
-                    onCategoryChange={handleCategoryChange}
-                />
-                <h3>Guest List Card</h3>
-                <ul>
-                    {guestsToDisplay.map((guest) => (
-                        <Guests
-                            key={guest.id}
-                            guests={guestList}
-                            onUpdateTask={handleUpdateTask}
-                        />
-                    ))
-                    }
-    
-                </ul>
-                {guestList.map((guest) => {
-                    // console.log({task})
-                    return(
-                        <p key={ guest.id }>
-                            { guest.guest_name }
-                            
-                        </p>
-                    )
-                })}
-                <footer>Footer: Maybe instructions at the bottom or something</footer>
-            </div>
-        )
-    }
-    
+
+
+	return (
+		<div>
+			<p>I am Guest!</p>
+			<Route exact path={match.url}>
+				<CreateNewGuest />
+			</Route>
+
+			<GuestsFilter
+				category={selectedCategory}
+				onCategoryChange={handleCategoryChange}
+			/>
+			<h3>Guest List Card</h3>
+			<ul>
+				{guestsToDisplay.map((guest) => (
+					<Guests
+						key={guest.id}
+						guests={guestList}
+						onUpdateTask={handleUpdateTask}
+					/>
+				))
+				}
+
+			</ul>
+			{guestList.map((guest) => {
+				// console.log({task})
+				return (
+					<p key={guest.id}>
+						{guest.guest_name}
+
+					</p>
+				)
+			})}
+			<footer>Footer: Maybe instructions at the bottom or something</footer>
+		</div>
+	)
+}
+
 
 export default GuestList; 

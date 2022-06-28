@@ -21,3 +21,5 @@ function CreateNewGuest() {
         </div>
     )
 }
+
+export default CreateNewGuest;
