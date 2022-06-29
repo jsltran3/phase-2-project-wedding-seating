@@ -42,13 +42,15 @@ function GuestList() {
 	return (
 		<div>
 			<p>I am Guest!</p>
-			<CreateNewNav />
+			{/* <CreateNewNav /> */}
 			{/* <Switch>
 				<Route exact path="/CreateNewGuest">
 					<CreateNewGuest />
 				</Route>
 			</Switch> */}
-
+			<button>
+        <NavLink to="/CreateNewGuest">CreateNewGuest</NavLink>
+      </button>
 			<GuestsFilter
 				category={selectedCategory}
 				onCategoryChange={handleCategoryChange}

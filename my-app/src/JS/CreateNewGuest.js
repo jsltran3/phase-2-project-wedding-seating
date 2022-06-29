@@ -1,16 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react"
 
 function CreateNewGuest() {
 	console.log("Create new guest card")
 	return (
 		
 		<div>
-						<Link to="/CreateNewGuest" >
-				<button type="button">
-          Add New Guest
-     		</button>
-			</Link>
+					
 			<button type="button">
 				Go back
 			</button>
