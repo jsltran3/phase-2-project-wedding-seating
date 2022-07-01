@@ -5,29 +5,26 @@ import CreateNewGuest from "./CreateNewGuest";
 import CreateNewNav from "./CreateGuestNav";
 import { 
 	Route, 
-	useRouteMatch, 
 	NavLink, 
 	Link, 
-	Switch 
 } 
 from "react-router-dom"
 
 function GuestList() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectedCategory, setSelectedCategory] = useState("All");
-	const match = useRouteMatch();
 
 	useEffect(() => {
-		fetch("http://localhost:3000/wedding_guests")
+		fetch("http://localhost:4000/wedding_guests")
 			.then((resp) => resp.json())
 			.then((guestList) => setGuestList(guestList));
 	}, []);
 
-	function handleCategoryChange() {
-		setSelectedCategory(selectedCategory)
+	function handleCategoryChange(category) {
+		setSelectedCategory(category)
 	}
 
-	function handleUpdateTask(updatedGuest) {
+	function handleUpdateGuest(updatedGuest) {
 		const updatedGuests = guestList.map((guest) => {
 			if (guest.id === updatedGuests.id) {
 				return updatedGuest;
@@ -37,6 +34,8 @@ function GuestList() {
 		});
 		setGuestList(updatedGuests);
 	}
+
+	
 
 	const guestsToDisplay = guestList.filter((guest => {
 		if (handleCategoryChange === "All") return true;
@@ -61,18 +60,17 @@ function GuestList() {
 					<Guests
 						key={guest.id}
 						guests={guestList}
-						onUpdateTask={handleUpdateTask}
+						onUpdateGuest={handleUpdateGuest}
 					/>
 				))
 				}
 
 			</ul>
 			{guestList.map((guest) => {
-				// console.log({task})
+				console.log({guest})
 				return (
 					<p key={guest.id}>
-						{guest.guest_name}
-
+					{guest.name}
 					</p>
 				)
 			})}

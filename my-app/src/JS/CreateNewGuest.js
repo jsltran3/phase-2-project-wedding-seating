@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react"
+import { useNavigate } from "react-router-dom"
 
 function CreateNewGuest() {
+	const navigate = useNavigate();
+
 	console.log("Create new guest card")
 	return (
 		
@@ -20,11 +23,35 @@ function CreateNewGuest() {
 			</form>
 			<form>
 				<label>
-					Content:
+					Song Request:
 					<input type="text" name="content" />
 				</label>
 				<input type="submit" value="Submit" />
 			</form>
+			<form>
+				<label>
+					Phone Number:
+					<input type="text" name="content" />
+				</label>
+				<input type="submit" value="Submit" />
+			</form>
+			<form>
+				<label>
+					Email:
+					<input type="text" name="content" />
+				</label>
+				<input type="submit" value="Submit" />
+			</form>
+			<select
+                name="filter"
+                // value={category}
+            >
+                <option value="All">RSVP Status</option>
+                <option value="Not Invited">Not Invited</option>
+                <option value="Invited">Invited</option>
+                <option value="Attending">Attending</option>
+                <option value="Declined">Declined</option>
+            </select>
 		</div>
 	)
 }

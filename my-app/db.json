@@ -2,43 +2,27 @@
   "wedding_guests": [
     {
       "id": 1,
-      "guest_name": "Woody",
+      "Name": "Woody",
       "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "Yes"
+      "RSVPed?": "Yes", 
+      "Phone Nunmber": 1234567890,
+      "Email": "jim@bob.com"
     },
     {
       "id": 2,
-      "guest_name": "Buzz Lightyear",
+      "Name": "Buzz Lightyear",
       "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "Yes"
+      "RSVPed?": "Yes",
+      "Phone Nunmber": 1234567890,
+      "Email": "jane@doe.com"
     },
     {
       "id": 3,
-      "guest_name": "Mr. Potato Head",
+      "Name": "Mr. Potato Head",
       "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "No"
+      "RSVPed?": "No",
+      "Phone Nunmber": 1234567890,
+      "Email": "average@joe.com"
     }
-  ],
-  // "SupportNetworks": [
-  //     {
-  //       "id": 1,
-  //       "name": "Woody",
-  //       "helperpersontype": "WantTo",
-  //       "Phone Number": "888-123-4567",
-  //       "Email": "bob@abc.com"
-  //     },
-  //     {
-  //       "id": 2,
-  //       "name": "Buzz Lightyear",
-  //       "helperpersontype": "WantTo",
-  //       "Phone Number": "888-123-4567",
-  //       "Email": "bob@abc.com"
-  //     },
-  //     {
-  //       "id": 3,
-  //       "name": "Mr. Potato Head",
-  //       "Phone Number": "888-123-4567",
-  //       "Email": "bob@abc.com"
-  //     }
-  //   ]
+  ]
 }

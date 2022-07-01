@@ -1,0 +1,28 @@
+{
+  "wedding_guests": [
+    {
+      "id": 1,
+      "Name": "Andy",
+      "Song request": "The Isley Brothers - Shout",
+      "RSVPed?": "Yes", 
+      "Phone Nunmber": 1234567890,
+      "Email": "jim@bob.com"
+    },
+    {
+      "id": 2,
+      "Name": "Buzz Lightyear",
+      "Song request": "The Isley Brothers - Shout",
+      "RSVPed?": "Yes",
+      "Phone Nunmber": 1234567890,
+      "Email": "jane@doe.com"
+    },
+    {
+      "id": 3,
+      "Name": "Mr. Potato Head",
+      "Song request": "The Isley Brothers - Shout",
+      "RSVPed?": "No",
+      "Phone Nunmber": 1234567890,
+      "Email": "average@joe.com"
+    }
+  ]
+}

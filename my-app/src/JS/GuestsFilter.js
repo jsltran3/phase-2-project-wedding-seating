@@ -8,7 +8,7 @@ function GuestsFilter({ category, onCategoryChange }) {
                 value={category}
                 onChange={(e) => onCategoryChange(e.target.value)}
             >
-                <option value="All">Everyone</option>
+                <option value="All">RSVP Status</option>
                 <option value="Not Invited">Not Invited</option>
                 <option value="Invited">Invited</option>
                 <option value="Attending">Attending</option>
