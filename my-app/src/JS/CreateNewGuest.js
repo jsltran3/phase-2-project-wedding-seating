@@ -42,7 +42,7 @@ function CreateNewGuest() {
 				</label>
 				<input type="submit" value="Submit" />
 			</form>
-			<select
+			{/* <select
                 name="filter"
                 // value={category}
             >
@@ -51,7 +51,7 @@ function CreateNewGuest() {
                 <option value="Invited">Invited</option>
                 <option value="Attending">Attending</option>
                 <option value="Declined">Declined</option>
-            </select>
+            </select> */}
 		</div>
 	)
 }

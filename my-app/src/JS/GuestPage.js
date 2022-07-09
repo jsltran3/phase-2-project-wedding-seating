@@ -4,7 +4,8 @@ import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
 import CreateNewNav from "./CreateGuestNav";
 import { 
-	Route, 
+	Route,
+	Routes, 
 	NavLink, 
 	Link, 
 } 
@@ -12,7 +13,7 @@ from "react-router-dom"
 
 function GuestList() {
 	const [guestList, setGuestList] = useState([]);
-	const [selectedCategory, setSelectedCategory] = useState("All");
+	const [attendance, setAttendance] = useState("All");
 
 	useEffect(() => {
 		fetch("http://localhost:4000/wedding_guests")
@@ -20,8 +21,8 @@ function GuestList() {
 			.then((guestList) => setGuestList(guestList));
 	}, []);
 
-	function handleCategoryChange(category) {
-		setSelectedCategory(category)
+	function handleAttendanceChange(status) {
+		setAttendance(status)
 	}
 
 	function handleUpdateGuest(updatedGuest) {
@@ -35,24 +36,27 @@ function GuestList() {
 		setGuestList(updatedGuests);
 	}
 
+	function handleDeleteGuest(deletedGuest) {
+		const updatedGuests = guestList.filter((guest) => guest.id !== deletedGuest.id);
+		setGuestList(guestList);
+	  }	
+
 	
 
 	const guestsToDisplay = guestList.filter((guest => {
-		if (handleCategoryChange === "All") return true;
+		if (handleAttendanceChange === "All") return true;
 
-		return guest.selectedCategory === handleCategoryChange;
+		return guest.setAttendance === handleAttendanceChange;
 	}));
 
 
 
 	return (
 		<div>
-			<button>
-        <Link to="/CreateNewGuest">CreateNewGuest</Link>
-      </button>
+			<CreateNewGuest />
 			<GuestsFilter
-				category={selectedCategory}
-				onCategoryChange={handleCategoryChange}
+				attendance={attendance}
+				onCategoryChange={handleAttendanceChange}
 			/>
 			<h3>Guest List Card</h3>
 			<ul>
@@ -61,6 +65,7 @@ function GuestList() {
 						key={guest.id}
 						guests={guestList}
 						onUpdateGuest={handleUpdateGuest}
+						onDeleteGuests={handleDeleteGuest}
 					/>
 				))
 				}
@@ -70,7 +75,7 @@ function GuestList() {
 				console.log({guest})
 				return (
 					<p key={guest.id}>
-					{guest.name}
+					{guest.Name}
 					</p>
 				)
 			})}
