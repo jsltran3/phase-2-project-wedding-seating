@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 
-function Guests() {
+function Guests({ guests }) {
 
+  // const display = function displayGuest() {
+  //   console.log({guests})
+  // }
   //needa know what page i'm on 
   useEffect(
       () => {
@@ -12,11 +15,13 @@ function Guests() {
   console.log("Component rendering");
   return (
       <div>
-          <h1>Perfect Wedding Guest</h1>
+          <li>
+            <span>{guests.name}</span>
+            <span>{guests.attendance}</span>
+          </li>
           <h2>Seating Made Easy</h2>
           <p>I am Home!</p>
       </div>
-
   )
 }
 

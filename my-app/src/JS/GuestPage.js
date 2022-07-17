@@ -3,13 +3,13 @@ import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
 import CreateNewNav from "./CreateGuestNav";
-import { 
+import {
 	Route,
-	Routes, 
-	NavLink, 
-	Link, 
-} 
-from "react-router-dom"
+	Routes,
+	NavLink,
+	Link,
+}
+	from "react-router-dom"
 
 function GuestList() {
 	const [guestList, setGuestList] = useState([]);
@@ -39,9 +39,14 @@ function GuestList() {
 	function handleDeleteGuest(deletedGuest) {
 		const updatedGuests = guestList.filter((guest) => guest.id !== deletedGuest.id);
 		setGuestList(guestList);
-	  }	
+	}
+
+	function handleAddGuest(newguest) {
+		setGuestList([...guestList, newguest]);
+	};
 
 	
+
 
 	const guestsToDisplay = guestList.filter((guest => {
 		if (handleAttendanceChange === "All") return true;
@@ -53,10 +58,10 @@ function GuestList() {
 
 	return (
 		<div>
-			<CreateNewGuest />
+			<CreateNewGuest onAddGuest={handleAddGuest}/>
 			<GuestsFilter
 				attendance={attendance}
-				onCategoryChange={handleAttendanceChange}
+				onAttendanceChange={handleAttendanceChange}
 			/>
 			<h3>Guest List Card</h3>
 			<ul>
@@ -71,14 +76,14 @@ function GuestList() {
 				}
 
 			</ul>
-			{guestList.map((guest) => {
-				console.log({guest})
+			{/* {guestList.map((guest) => {
+				console.log({ guest })
 				return (
 					<p key={guest.id}>
-					{guest.Name}
+						{guest.name}
 					</p>
 				)
-			})}
+			})} */}
 			<footer>Footer: Maybe instructions at the bottom or something</footer>
 		</div>
 	)

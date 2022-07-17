@@ -1,12 +1,12 @@
 import React from "react"
 
-function GuestsFilter({ category, onCategoryChange }) {
+function GuestsFilter({ attendance, onAttendanceChange }) {
     return (
         <div>
             <select
                 name="filter"
-                value={category}
-                onChange={(e) => onCategoryChange(e.target.value)}
+                value={attendance}
+                onChange={(event) => onAttendanceChange(event.target.value)}
             >
                 <option value="All">RSVP Status</option>
                 <option value="Not Invited">Not Invited</option>

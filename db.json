@@ -3,26 +3,26 @@
     {
       "id": 1,
       "Name": "Andy",
-      "Song request": "The Isley Brothers - Shout",
       "RSVPed?": "Yes", 
+      "Email": "jim@bob.com",
       "Phone Nunmber": 1234567890,
-      "Email": "jim@bob.com"
+      "Notes": "The Isley Brothers - Shout"
     },
     {
       "id": 2,
       "Name": "Buzz Lightyear",
-      "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "Yes",
+      "RSVPed?": "Yes", 
+      "Email": "jim@bob.com",
       "Phone Nunmber": 1234567890,
-      "Email": "jane@doe.com"
+      "Notes": "The Isley Brothers - Shout"
     },
     {
       "id": 3,
-      "Name": "Mr. Potato Head",
-      "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "No",
+      "Name": "Woody",
+      "RSVPed?": "Yes", 
+      "Email": "jim@bob.com",
       "Phone Nunmber": 1234567890,
-      "Email": "average@joe.com"
+      "Notes": "The Isley Brothers - Shout"
     }
   ]
 }

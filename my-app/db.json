@@ -2,27 +2,43 @@
   "wedding_guests": [
     {
       "id": 1,
-      "Name": "Woody",
-      "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "Yes", 
+      "name": "Andy",
+      "attendance": "Yes",
+      "Email": "jim@bob.com",
       "Phone Nunmber": 1234567890,
-      "Email": "jim@bob.com"
+      "Notes": "The Isley Brothers - Shout"
     },
     {
       "id": 2,
       "Name": "Buzz Lightyear",
-      "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "Yes",
+      "attendance": "Yes",
+      "Email": "jim@bob.com",
       "Phone Nunmber": 1234567890,
-      "Email": "jane@doe.com"
+      "Notes": "The Isley Brothers - Shout"
     },
     {
       "id": 3,
-      "Name": "Mr. Potato Head",
-      "Song request": "The Isley Brothers - Shout",
-      "RSVPed?": "No",
+      "Name": "Woody",
+      "attendance": "Yes",
+      "Email": "jim@bob.com",
       "Phone Nunmber": 1234567890,
-      "Email": "average@joe.com"
+      "Notes": "The Isley Brothers - Shout"
+    },
+    {
+      "category": "Not Invited",
+      "id": 4
+    },
+    {
+      "category": "Not Invited",
+      "id": 5
+    },
+    {
+      "category": "Not Invited",
+      "id": 6
+    },
+    {
+      "category": false,
+      "id": 7
     }
   ]
 }
