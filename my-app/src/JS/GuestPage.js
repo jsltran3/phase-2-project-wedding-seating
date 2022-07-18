@@ -12,7 +12,7 @@ import {
 
 function GuestList() {
 	const [guestList, setGuestList] = useState([]);
-	const [selectAttendance, setSelectAttendance] = useState("All");
+	const [selectAttendance, setSelectAttendance] = useState("");
 
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
@@ -55,7 +55,10 @@ function GuestList() {
 
 	return (
 		<div>
-			<CreateNewGuest onAddGuest={handleAddGuest}/>
+			<CreateNewGuest 
+				onAddGuest={handleAddGuest}
+				onAttendanceChange={handleAttendanceChange}
+			/>
 			<GuestsFilter
 				attendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}

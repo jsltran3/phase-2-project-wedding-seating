@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
-function CreateNewGuest({ onAddGuest }) {
+function CreateNewGuest({ onAddGuest, onAttendanceChange }) {
+	const [attendance, setAttendance] = useState("Invited")
 	const [formInput, setFormInput] = useState({
 		name:"",
 		email:"",
 		phone:"",
 		notes:""
 	})
-	const [attendance, setAttendance] = useState("")
+	
 
 	function handleChange(event) {
 		setFormInput({
@@ -15,24 +16,27 @@ function CreateNewGuest({ onAddGuest }) {
 			[event.target.name]: event.target.value})
 	}
 
+	function handleRsvpChange(event) {
+		setAttendance(event.target.value);
+	}
+
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		// console.log(event.target.value);
-		// console.log("name", formInput.name)
-		// console.log("email", formInput.email)
-		// console.log("phone", formInput.phone)
-		// console.log("notes", formInput.notes)
+
 		onAddGuest(formInput)
+		onAttendanceChange(attendance)
+	
 
 		setFormInput({
 			name:"",
+			attendance:"",
 			email:"", 
 			phone:"", 
 			notes:""
 		})
 
-		setAttendance({attendance:""})
+		
 	
 		fetch("http://localhost:4000/weddingGuests", {
 			method: "POST", 
@@ -43,7 +47,10 @@ function CreateNewGuest({ onAddGuest }) {
 			body: JSON.stringify( formInput ), 
 		})
 			.then((resp) => resp.json())
-			.then((newGuest) => onAddGuest(newGuest));
+			.then(newGuest => {
+				onAttendanceChange(attendance)
+				onAddGuest(newGuest)
+			})
 	}
 
 	return (
@@ -97,7 +104,7 @@ function CreateNewGuest({ onAddGuest }) {
 			<select 
 				name="attendance" 
 				value={attendance}
-				onChange={(e) => setAttendance(e.target.value)}
+				onChange={handleRsvpChange}
 			>
                 <option value="Not Invited">Not Invited</option>
                 <option value="Invited">Invited</option>
