@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react"
-import { useNavigate } from "react-router-dom"
 
 function CreateNewGuest({ onAddGuest }) {
 	const [formInput, setFormInput] = useState({
@@ -9,30 +7,40 @@ function CreateNewGuest({ onAddGuest }) {
 		phone:"",
 		notes:""
 	})
+	const [attendance, setAttendance] = useState("")
 
-	// const [category, setCategory] = useState("Not Invited");
+	function handleChange(event) {
+		setFormInput({
+			...formInput,
+			[event.target.name]: event.target.value})
+	}
 
-	const navigate = useNavigate();
 
-
-	//to do: do a handlechange and then some sort of handlesubmit or whatever
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(event.target.value);
-		const guestInfo = {
-			name: formInput.name, 
-			email: formInput.email,
-			phone: formInput.phone,
-			notes: formInput.notes,
-			attendance: false, 
-		};
+		// console.log(event.target.value);
+		// console.log("name", formInput.name)
+		// console.log("email", formInput.email)
+		// console.log("phone", formInput.phone)
+		// console.log("notes", formInput.notes)
+		onAddGuest(formInput)
 
-		fetch("http://localhost:4000/wedding_guests", {
+		setFormInput({
+			name:"",
+			email:"", 
+			phone:"", 
+			notes:""
+		})
+
+		setAttendance({attendance:""})
+	
+		fetch("http://localhost:4000/weddingGuests", {
 			method: "POST", 
 			headers: {
-				"Content-Type": "application/json",
+				"Accept": "application/json",
+				"Content-Type": "application/json"
 			}, 
-			body: JSON.stringify(guestInfo), 
+			body: JSON.stringify( formInput ), 
 		})
 			.then((resp) => resp.json())
 			.then((newGuest) => onAddGuest(newGuest));
@@ -53,7 +61,7 @@ function CreateNewGuest({ onAddGuest }) {
 						type="text" 
 						name="name" 
 						value={formInput.name}
-						onChange={(event) => setFormInput(event.target.value)}
+						onChange={handleChange}
 					/>
 				</label>
 				<label>
@@ -62,16 +70,16 @@ function CreateNewGuest({ onAddGuest }) {
 						type="text" 
 						name="email" 
 						value={formInput.email} 
-						onChange={(event) => setFormInput(event.target.value)}
+						onChange={handleChange}
 					/>
 				</label>
 				<label>
-					Phone:
+					Phone Number:
 					<input 
 						type="text" 
 						name="phone" 
 						value={formInput.phone} 
-						onChange={((event) => setFormInput(event.target.value))}
+						onChange={handleChange}
 					/>
 				</label>
 				<label>
@@ -80,13 +88,17 @@ function CreateNewGuest({ onAddGuest }) {
 						type="text" 
 						name="notes" 
 						value={formInput.notes} 
-						onChange={(event) => setFormInput(event.target.value)}
+						onChange={handleChange}
 					/>
 				</label>
-				<input type="submit" value="Submit" />
+				<button type="submit">Submit</button>
 			</form>
 
-			<select name="filter" >
+			<select 
+				name="attendance" 
+				value={attendance}
+				onChange={(e) => setAttendance(e.target.value)}
+			>
                 <option value="Not Invited">Not Invited</option>
                 <option value="Invited">Invited</option>
                 <option value="Attending">Attending</option>

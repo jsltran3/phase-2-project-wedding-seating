@@ -1,44 +1,77 @@
 {
-  "wedding_guests": [
+  "weddingGuests": [
     {
       "id": 1,
       "name": "Andy",
-      "attendance": "Yes",
-      "Email": "jim@bob.com",
-      "Phone Nunmber": 1234567890,
-      "Notes": "The Isley Brothers - Shout"
+      "attendance": "Invited",
+      "email": "jim@bob.com",
+      "phone": 1234567890,
+      "notes": "The Isley Brothers - Shout"
     },
     {
       "id": 2,
-      "Name": "Buzz Lightyear",
-      "attendance": "Yes",
-      "Email": "jim@bob.com",
-      "Phone Nunmber": 1234567890,
+      "name": "Buzz Lightyear",
+      "attendance": "Invited",
+      "email": "jim@bob.com",
+      "phone": 1234567890,
       "Notes": "The Isley Brothers - Shout"
     },
     {
       "id": 3,
-      "Name": "Woody",
-      "attendance": "Yes",
-      "Email": "jim@bob.com",
-      "Phone Nunmber": 1234567890,
+      "name": "Woody",
+      "attendance": "Invited",
+      "email": "jim@bob.com",
+      "phone": 1234567890,
       "Notes": "The Isley Brothers - Shout"
     },
     {
-      "category": "Not Invited",
+      "name": "Test",
+      "email": "blah@blah.com",
+      "phone": "234235",
+      "notes": "notes notes",
       "id": 4
     },
     {
-      "category": "Not Invited",
+      "name": "LIz Morales",
+      "email": "liz@liz.com",
+      "phone": "123535980",
+      "notes": "Partner",
       "id": 5
     },
     {
-      "category": "Not Invited",
+      "name": "Joe T",
+      "email": "joe@gmail.com",
+      "phone": "23598398",
+      "notes": "some guy",
       "id": 6
     },
     {
-      "category": false,
+      "name": "",
+      "email": "",
+      "phone": "",
+      "notes": "",
       "id": 7
+    },
+    {
+      "name": "zuko",
+      "email": "zuko@tran.com",
+      "phone": "35429354839",
+      "notes": "a dog",
+      "id": 8
+    },
+    {
+      "name": "Unsure Guest",
+      "email": "test@test.com",
+      "phone": "235315",
+      "notes": "category show up please",
+      "id": 9
+    },
+    {
+      "name": "rando",
+      "email": "email@email.com",
+      "phone": "2352135",
+      "notes": "35253",
+      "id": 10
     }
   ]
 }

@@ -19,8 +19,6 @@ function Guests({ guests }) {
             <span>{guests.name}</span>
             <span>{guests.attendance}</span>
           </li>
-          <h2>Seating Made Easy</h2>
-          <p>I am Home!</p>
       </div>
   )
 }

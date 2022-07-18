@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
-import CreateNewNav from "./CreateGuestNav";
 import {
 	Route,
 	Routes,
@@ -13,21 +12,21 @@ import {
 
 function GuestList() {
 	const [guestList, setGuestList] = useState([]);
-	const [attendance, setAttendance] = useState("All");
+	const [selectAttendance, setSelectAttendance] = useState("All");
 
 	useEffect(() => {
-		fetch("http://localhost:4000/wedding_guests")
+		fetch("http://localhost:4000/weddingGuests")
 			.then((resp) => resp.json())
 			.then((guestList) => setGuestList(guestList));
 	}, []);
 
-	function handleAttendanceChange(status) {
-		setAttendance(status)
+	function handleAttendanceChange(rsvpStatus) {
+		setSelectAttendance(rsvpStatus)
 	}
 
 	function handleUpdateGuest(updatedGuest) {
 		const updatedGuests = guestList.map((guest) => {
-			if (guest.id === updatedGuests.id) {
+			if (guest.id === updatedGuest.id) {
 				return updatedGuest;
 			} else {
 				return guest;
@@ -45,13 +44,11 @@ function GuestList() {
 		setGuestList([...guestList, newguest]);
 	};
 
-	
-
 
 	const guestsToDisplay = guestList.filter((guest => {
-		if (handleAttendanceChange === "All") return true;
+		if (selectAttendance === "All") return true;
 
-		return guest.setAttendance === handleAttendanceChange;
+		return guest.setSelectAttendance === selectAttendance;
 	}));
 
 
@@ -60,7 +57,7 @@ function GuestList() {
 		<div>
 			<CreateNewGuest onAddGuest={handleAddGuest}/>
 			<GuestsFilter
-				attendance={attendance}
+				attendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}
 			/>
 			<h3>Guest List Card</h3>
@@ -76,14 +73,15 @@ function GuestList() {
 				}
 
 			</ul>
-			{/* {guestList.map((guest) => {
+			{guestList.map((guest) => {
 				console.log({ guest })
 				return (
 					<p key={guest.id}>
 						{guest.name}
+						
 					</p>
 				)
-			})} */}
+			})}
 			<footer>Footer: Maybe instructions at the bottom or something</footer>
 		</div>
 	)
