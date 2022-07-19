@@ -1,11 +1,11 @@
 import React from "react"
 
-function GuestsFilter({ attendance, onAttendanceChange }) {
+function GuestsFilter({ selectAttendance, onAttendanceChange }) {
     return (
         <div>
             <select
                 name="filter"
-                value={attendance}
+                value={selectAttendance}
                 onChange={(event) => onAttendanceChange(event.target.value)}
             >
                 <option value="All">RSVP Status</option>

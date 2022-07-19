@@ -1,23 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-function Guests({ guests }) {
+function Guests({ guest, onDeleteGuests }) {
 
-  // const display = function displayGuest() {
-  //   console.log({guests})
-  // }
-  //needa know what page i'm on 
-  useEffect(
-      () => {
-          console.log("This is the guest page")
-      }
-  );
+  function handleDeleteClick() {
+    fetch("http://localhost:4000/weddingGuests/${guest.id}", {
+      method: "DELETE", 
+    })
+    .then((resp) => resp.json())
+    .then(() => onDeleteGuests(guest)) 
+  }
 
-  console.log("Component rendering");
   return (
       <div>
           <li>
-            <span>{guests.name}</span>
-            <span>{guests.attendance}</span>
+            <span>{guest.name}</span>
+            <span>{guest.attendance}</span>
+            <button onClick={handleDeleteClick}>Delete</button>
           </li>
       </div>
   )

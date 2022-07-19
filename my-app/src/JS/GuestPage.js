@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
-import {
-	Route,
-	Routes,
-	NavLink,
-	Link,
-}
-	from "react-router-dom"
 
-function GuestList() {
+function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
-	const [selectAttendance, setSelectAttendance] = useState("");
+	const [selectAttendance, setSelectAttendance] = useState("All");
+	const [attendance, setAttendance] = useState("Invited");
+	const [formInput, setFormInput] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    notes: ""
+  });
+	
 
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
@@ -37,10 +38,10 @@ function GuestList() {
 
 	function handleDeleteGuest(deletedGuest) {
 		const updatedGuests = guestList.filter((guest) => guest.id !== deletedGuest.id);
-		setGuestList(guestList);
+		setGuestList(updatedGuests);
 	}
 
-	function handleAddGuest(newguest) {
+	function handleSetGuest(newguest) {
 		setGuestList([...guestList, newguest]);
 	};
 
@@ -51,16 +52,42 @@ function GuestList() {
 		return guest.setSelectAttendance === selectAttendance;
 	}));
 
+	function handleAddGuest(guest) {
 
+		const newGuestInfo = ({
+			name: formInput.name, 
+			attendance: attendance,
+			email: formInput.email,
+			phone: formInput.phone,
+			notes: formInput.notes
+		}) 
+
+		fetch("http://localhost:4000/weddingGuests", {
+			method: "POST", 
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify( newGuestInfo )
+		})
+			.then((resp) => resp.json())
+			.then((guest) => {
+				const newGuest = [...guestList, guest];
+				handleSetGuest(newGuest);
+			});
+}
+	
 
 	return (
 		<div>
 			<CreateNewGuest 
 				onAddGuest={handleAddGuest}
-				onAttendanceChange={handleAttendanceChange}
+				attendance={attendance}
+				setAttendance={setAttendance}
+				formInput={formInput}
+				setFormInput={setFormInput}
 			/>
 			<GuestsFilter
-				attendance={selectAttendance}
+				selectAttendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}
 			/>
 			<h3>Guest List Card</h3>
@@ -68,15 +95,17 @@ function GuestList() {
 				{guestsToDisplay.map((guest) => (
 					<Guests
 						key={guest.id}
-						guests={guestList}
+						guest={guestList}
 						onUpdateGuest={handleUpdateGuest}
 						onDeleteGuests={handleDeleteGuest}
+						formInput={formInput}
+
 					/>
 				))
 				}
 
 			</ul>
-			{guestList.map((guest) => {
+			{/* {guestList.map((guest) => {
 				console.log({ guest })
 				return (
 					<p key={guest.id}>
@@ -84,11 +113,11 @@ function GuestList() {
 						
 					</p>
 				)
-			})}
+			})} */}
 			<footer>Footer: Maybe instructions at the bottom or something</footer>
 		</div>
 	)
 }
 
 
-export default GuestList; 
+export default GuestPage; 

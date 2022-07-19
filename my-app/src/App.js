@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react"; 
+import React from "react"; 
 import './App.css';
 import NavBar from "./JS/NavBar";
 import GuestPage from "./JS/GuestPage.js"; 
 import Home from "./JS/Home"
-import CreateNewGuest from "./JS/CreateNewGuest";
 import { Route, Routes } from "react-router-dom";
 
 
@@ -14,7 +13,6 @@ function App() {
       <NavBar />
         <Routes>
           <Route path="/GuestPage" element={ <GuestPage/>} />
-
           <Route path="/" element={ <Home/> } />
         </Routes>
     </div>

@@ -25,116 +25,12 @@
       "Notes": "The Isley Brothers - Shout"
     },
     {
-      "name": "Test",
-      "email": "blah@blah.com",
-      "phone": "234235",
-      "notes": "notes notes",
+      "name": "test",
+      "attendance": "Invited",
+      "email": "test",
+      "phone": "test",
+      "notes": "test",
       "id": 4
-    },
-    {
-      "name": "LIz Morales",
-      "email": "liz@liz.com",
-      "phone": "123535980",
-      "notes": "Partner",
-      "id": 5
-    },
-    {
-      "name": "Joe T",
-      "email": "joe@gmail.com",
-      "phone": "23598398",
-      "notes": "some guy",
-      "id": 6
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 7
-    },
-    {
-      "name": "zuko",
-      "email": "zuko@tran.com",
-      "phone": "35429354839",
-      "notes": "a dog",
-      "id": 8
-    },
-    {
-      "name": "Unsure Guest",
-      "email": "test@test.com",
-      "phone": "235315",
-      "notes": "category show up please",
-      "id": 9
-    },
-    {
-      "name": "rando",
-      "email": "email@email.com",
-      "phone": "2352135",
-      "notes": "35253",
-      "id": 10
-    },
-    {
-      "name": "asdlfkj",
-      "email": "alsdkjf",
-      "phone": "elakjd",
-      "notes": "alkdsjf",
-      "id": 11
-    },
-    {
-      "name": "rsvp",
-      "email": "kdjf@gmail.com",
-      "phone": "23549",
-      "notes": "dlkfjl",
-      "id": 12
-    },
-    {
-      "name": "rsvp1",
-      "email": "rsvp@gmail.com",
-      "phone": "asdf",
-      "notes": "",
-      "id": 13
-    },
-    {
-      "name": "rsvp2",
-      "email": "rsdklfj@gmail.com",
-      "phone": "",
-      "notes": "",
-      "id": 14
-    },
-    {
-      "name": "",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 15
-    },
-    {
-      "name": "rsvp3",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 16
-    },
-    {
-      "name": "rsvp4",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 17
-    },
-    {
-      "name": "rsvp5",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 18
-    },
-    {
-      "name": "rsvp6",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 19
     }
   ]
 }
