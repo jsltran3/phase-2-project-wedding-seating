@@ -1,23 +1,29 @@
 import React from "react";
 
-function Guests({ guest, onDeleteGuests }) {
+function Guests({ guest, name, onDeleteGuests }) {
 
   function handleDeleteClick() {
-    fetch("http://localhost:4000/weddingGuests/${guest.id}", {
+    fetch(`http://localhost:4000/weddingGuests/${name}`, {
       method: "DELETE", 
     })
     .then((resp) => resp.json())
-    .then(() => onDeleteGuests(guest)) 
+    .then(() => console.log(name));
+    // .then(() => onDeleteGuests(guest)) 
   }
 
   return (
-      <div>
-          <li>
-            <span>{guest.name}</span>
-            <span>{guest.attendance}</span>
-            <button onClick={handleDeleteClick}>Delete</button>
-          </li>
-      </div>
+      <ul>
+        <li>
+          <span>{name}</span>
+          <button onClick={handleDeleteClick}>Delete</button>
+          {/* <span>{guests.attendance}</span>
+          <button onClick={handleDeleteClick}>Delete</button> */}
+          {/* {guestCards.map((guest) => (
+            guest.name
+          ))} */}
+        </li>
+      </ul>
+
   )
 }
 

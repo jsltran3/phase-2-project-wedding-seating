@@ -6,14 +6,7 @@ import CreateNewGuest from "./CreateNewGuest";
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
-	const [attendance, setAttendance] = useState("Invited");
-	const [formInput, setFormInput] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    notes: ""
-  });
-	
+
 
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
@@ -25,23 +18,15 @@ function GuestPage() {
 		setSelectAttendance(rsvpStatus)
 	}
 
-	function handleUpdateGuest(updatedGuest) {
-		const updatedGuests = guestList.map((guest) => {
-			if (guest.id === updatedGuest.id) {
-				return updatedGuest;
-			} else {
-				return guest;
-			}
-		});
-		setGuestList(updatedGuests);
-	}
-
 	function handleDeleteGuest(deletedGuest) {
-		const updatedGuests = guestList.filter((guest) => guest.id !== deletedGuest.id);
-		setGuestList(updatedGuests);
-	}
+		// const updatedGuests = guestList.filter((guest) => guest.id !== deletedGuest.id);
+		const updatedGuests = guestList.filter((guest) => guest.name !== deletedGuest.name);
+		setGuestList(updatedGuests)
+		// console.log(updatedGuests)
 
-	function handleSetGuest(newguest) {
+  }
+	
+	function handleAddGuest(newguest) {
 		setGuestList([...guestList, newguest]);
 	};
 
@@ -49,42 +34,15 @@ function GuestPage() {
 	const guestsToDisplay = guestList.filter((guest => {
 		if (selectAttendance === "All") return true;
 
-		return guest.setSelectAttendance === selectAttendance;
+		return guest.attendance === selectAttendance;
 	}));
-
-	function handleAddGuest(guest) {
-
-		const newGuestInfo = ({
-			name: formInput.name, 
-			attendance: attendance,
-			email: formInput.email,
-			phone: formInput.phone,
-			notes: formInput.notes
-		}) 
-
-		fetch("http://localhost:4000/weddingGuests", {
-			method: "POST", 
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify( newGuestInfo )
-		})
-			.then((resp) => resp.json())
-			.then((guest) => {
-				const newGuest = [...guestList, guest];
-				handleSetGuest(newGuest);
-			});
-}
 	
 
 	return (
 		<div>
 			<CreateNewGuest 
 				onAddGuest={handleAddGuest}
-				attendance={attendance}
-				setAttendance={setAttendance}
-				formInput={formInput}
-				setFormInput={setFormInput}
+	
 			/>
 			<GuestsFilter
 				selectAttendance={selectAttendance}
@@ -94,15 +52,20 @@ function GuestPage() {
 			<ul>
 				{guestsToDisplay.map((guest) => (
 					<Guests
-						key={guest.id}
 						guest={guestList}
-						onUpdateGuest={handleUpdateGuest}
+						name={guest.name}
+						key={guest.id}
 						onDeleteGuests={handleDeleteGuest}
-						formInput={formInput}
-
+		
 					/>
 				))
 				}
+				{/* <Guests 
+					guest={guestList}
+					guestCards={guestsToDisplay}
+					onUpdateGuest={handleUpdateGuest}
+					onDeleteGuests={handleDeleteGuest}
+				/> */}
 
 			</ul>
 			{/* {guestList.map((guest) => {

@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
-function CreateNewGuest({ onAddGuest, attendance, setAttendance, formInput, setFormInput  }) {
-	//define the defaults
-  // const [attendance, setAttendance] = useState("Invited");
-  // const [formInput, setFormInput] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   notes: ""
-  // });
+function CreateNewGuest({ onAddGuest }) {
 
-  function handleChange(event) {
+  const [attendance, setAttendance] = useState("Invited");
+  const [formInput, setFormInput] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    notes: ""
+  });
+
+  function handleFormInputChange(event) {
     setFormInput({
       ...formInput,
       [event.target.name]: event.target.value
@@ -21,13 +21,36 @@ function CreateNewGuest({ onAddGuest, attendance, setAttendance, formInput, setF
     setAttendance(event.target.value);
   }
 
+	function handleSubmit(event) {
+		event.preventDefault();
+		const newGuestInfo = ({
+			name: formInput.name, 
+			attendance: attendance,
+			email: formInput.email,
+			phone: formInput.phone,
+			notes: formInput.notes
+		})
+	
+		fetch("http://localhost:4000/weddingGuests", {
+			method: "POST", 
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify( newGuestInfo )
+		})
+			.then((resp) => resp.json())
+			.then((newGuest) => onAddGuest(newGuest))
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-		onAddGuest(event)
-  }
-
+					setFormInput({
+			name: "",
+			email: "",
+			phone: "",
+			notes: ""
+					})
+		
+	}
+			
   return (
     <div>
       <button type="button">Go back</button>
@@ -36,37 +59,41 @@ function CreateNewGuest({ onAddGuest, attendance, setAttendance, formInput, setF
         <label>
           Name:
           <input
-            type="text"
+						id="name"
+            type="name"
             name="name"
             value={formInput.name}
-            onChange={handleChange}
+            onChange={handleFormInputChange}
           />
         </label>
         <label>
           Email:
           <input
-            type="text"
+						id="email"
+            type="email"
             name="email"
             value={formInput.email}
-            onChange={handleChange}
+            onChange={handleFormInputChange}
           />
         </label>
         <label>
           Phone Number:
           <input
-            type="text"
+						id="phone"
+            type="phone"
             name="phone"
             value={formInput.phone}
-            onChange={handleChange}
+            onChange={handleFormInputChange}
           />
         </label>
         <label>
           Notes:
           <input
-            type="text"
+						id="notes"
+            type="notes"
             name="notes"
             value={formInput.notes}
-            onChange={handleChange}
+            onChange={handleFormInputChange}
           />
         </label>
         <button type="submit">Submit</button>
