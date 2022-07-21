@@ -18,12 +18,9 @@ function GuestPage() {
 		setSelectAttendance(rsvpStatus)
 	}
 
-	function handleDeleteGuest(deletedGuest) {
-		// const updatedGuests = guestList.filter((guest) => guest.id !== deletedGuest.id);
-		const updatedGuests = guestList.filter((guest) => guest.name !== deletedGuest.name);
+	function handleDeleteGuest(id) {
+		const updatedGuests = guestList.filter((guest) => guest.id !== id);
 		setGuestList(updatedGuests)
-		// console.log(updatedGuests)
-
   }
 	
 	function handleAddGuest(newguest) {
@@ -55,6 +52,7 @@ function GuestPage() {
 						guest={guestList}
 						name={guest.name}
 						key={guest.id}
+						id={guest.id}
 						onDeleteGuests={handleDeleteGuest}
 		
 					/>

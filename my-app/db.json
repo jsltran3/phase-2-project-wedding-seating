@@ -1,12 +1,3 @@
 {
-  "weddingGuests": [
-    {
-      "name": "newtest",
-      "attendance": "Invited",
-      "email": "email@gmail.com",
-      "phone": "345245",
-      "notes": "blah",
-      "id": 1
-    }
-  ]
+  "weddingGuests": []
 }
