@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
+import Search from "./Search";
 
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
 
+	 
 
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
 			.then((resp) => resp.json())
 			.then((guestList) => setGuestList(guestList));
 	}, []);
+
+	useEffect(() => console.log(guestList.map(guest => guest.name)))
 
 	function handleAttendanceChange(rsvpStatus) {
 		setSelectAttendance(rsvpStatus)
@@ -33,6 +37,8 @@ function GuestPage() {
 
 		return guest.attendance === selectAttendance;
 	}));
+
+	const searchGuestDisplay = guestList.filter(guest => guest);
 	
 
 	return (
@@ -58,14 +64,18 @@ function GuestPage() {
 					/>
 				))
 				}
-				{/* <Guests 
-					guest={guestList}
-					guestCards={guestsToDisplay}
-					onUpdateGuest={handleUpdateGuest}
-					onDeleteGuests={handleDeleteGuest}
-				/> */}
-
 			</ul>
+			{/* {searchGuestDisplay.map((guest) => ( 
+				<Search 
+					guest={guestList} 
+					setGuestList={setGuestList}
+				/>
+			))}  */}
+			<Search
+				guestList={guestList}
+				setGuestList={setGuestList}
+			/>
+			
 			{/* {guestList.map((guest) => {
 				console.log({ guest })
 				return (
