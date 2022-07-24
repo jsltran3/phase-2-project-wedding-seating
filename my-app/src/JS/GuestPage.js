@@ -2,66 +2,39 @@ import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
-// import Search from "./Search";
+import Search from "./Search";
 
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
-	//search shit
-	const [inputText, setInputText] = useState("");
+	//passed down serach
+	// const [inputText, setInputText] = useState("");
 	 
-
+	//passed down search
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
 			.then((resp) => resp.json())
 			.then((guests) => { 
-				setInputText(guestList)
 				setGuestList(guests)
+				// setInputText(guestList)
 			});
 	}, []);
 
 
-
-	// search shit
-	// useEffect(() => {
-  //   setInputText(guestList)
-	// 	// console.log(guestList)
-  // }, [ guestList ])
-
-	//search s hit
+	//passed down search
 	// function handleSubmitSearch(event) {
 	// 	event.preventDefault(); 
 
-	// 	setInputText(guestList.filter(
-	// 		function searchGuest(guest) {
-	// 		if (inputText == "") {
-	// 			return guest
-	// 		} else if (guest.name.toLowerCase().includes(inputText.toLowerCase())) {
-	// 			return guest
-	// 		}
-	// 	}))
+	// 	setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
+
 	// }
-	function handleSetInput(event) {
-		event.preventDeafult()
-		
-	}
 
-
-	//search shit
-	function handleSubmitSearch(event) {
-		event.preventDefault(); 
-
-		setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
-
-	}
 	useEffect(() => console.log(guestsToDisplay.map(guest => guest.name)))
 
-	function handleChangeSearch(event) {
-		setInputText(event.target.value)
-	}
-
-	//searchshit
-	// const displaySearchInput = 
+	//passed down search
+	// function handleChangeSearch(event) {
+	// 	setInputText(event.target.value)
+	// }
 		
 	function handleAttendanceChange(rsvpStatus) {
 		setSelectAttendance(rsvpStatus)
@@ -92,7 +65,7 @@ function GuestPage() {
 				selectAttendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}
 			/>
-			<form onSubmit={ handleSubmitSearch }>
+			{/* <form onSubmit={ handleSubmitSearch }>
 				<input 
 					type="text" 
 					name="inputText" 
@@ -105,8 +78,12 @@ function GuestPage() {
 					type="submit" 
 					value="search" 
 				/>
-		</form>
+		</form> */}
 			<h3>Guest List Card</h3>
+			<Search
+				guestList={guestList}
+				setGuestList={setGuestList}
+			/>
 			<ul>
 				{guestsToDisplay.map((guest) => (
 					<Guests
@@ -122,10 +99,7 @@ function GuestPage() {
 
 			</ul>
 			
-			{/* <Search
-				guestList={guestList}
-				setGuestList={setGuestList}
-			/> */}
+
 
 			
 			<footer>Footer: Maybe instructions at the bottom or something</footer>

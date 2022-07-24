@@ -1,14 +1,6 @@
 {
   "weddingGuests": [
     {
-      "name": "Abby",
-      "attendance": "Invited",
-      "email": "email@gmail.com",
-      "phone": "234908320",
-      "notes": "whatever",
-      "id": 1
-    },
-    {
       "name": "Joe",
       "attendance": "Attending",
       "email": "joe@gamil.com",

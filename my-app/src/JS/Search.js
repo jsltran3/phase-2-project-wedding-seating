@@ -3,25 +3,20 @@ import React, { useState, useEffect } from "react";
 function Search({ guestList, setGuestList }) {
 	const [inputText, setInputText] = useState("")
 
-	// useEffect(() => console.log(names.map(guest => guest.name)))
-
+	//may not do anything
 	useEffect(() => {
-    setInputText(guestList)
-		// console.log(guestList.map(guest => guest.name))
-  }, [ guestList ])
+		fetch("http://localhost:4000/weddingGuests")
+			.then((resp) => resp.json())
+			.then((guests) => { 
+				setInputText(guestList)
+				setGuestList(guests)
+			});
+	}, []);
 
-	// function searchBox(name) {
-	// 	return (
-	// 		name.toLowerCase().includes(inputText.toLowerCase())
-	// 	)
-	// }
-
-	function handleSubmit(event) {
+	function handleSubmitSearch(event) {
 		event.preventDefault(); 
-		//wait can i search the whole name wiht just the name? 
-		//use one setSearch to test about abstracting one thing
-		setInputText(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
 
+		setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
 
 	}
 
@@ -31,19 +26,19 @@ function Search({ guestList, setGuestList }) {
 
 	return (
 		<form onSubmit={ handleSubmitSearch }>
-			<input 
-				type="text" 
-				name="inputText" 
-				id="inputText" 
-				value={ inputText } 
-				placeholder="Search guest..."
-				onChange={ handleChangeSearch } 
-			/>
-			<input 
-				type="submit" 
-				value="search" 
-			/>
-		</form>
+		<input 
+			type="text" 
+			name="inputText" 
+			id="inputText" 
+			value={ inputText } 
+			placeholder="Search guest..."
+			onChange={ handleChangeSearch } 
+		/>
+		<input 
+			type="submit" 
+			value="search" 
+		/>
+</form>
 		)
 }
 
