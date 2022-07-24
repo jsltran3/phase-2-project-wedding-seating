@@ -5,20 +5,10 @@ function Search({ guestList, setGuestList }) {
 
 	// useEffect(() => console.log(names.map(guest => guest.name)))
 
-	// useEffect(() => {
-	// 	fetch("http://localhost:4000/weddingGuests")
-	// 		.then((resp) => resp.json())
-	// 		.then((guestList) => setGuestList(guestList));
-	// }, []);
-
 	useEffect(() => {
     setInputText(guestList)
-		console.log(inputText)
+		// console.log(guestList.map(guest => guest.name))
   }, [ guestList ])
-
-	// function nameList(guest) {
-	// 	names.map(guest => guest.name)
-	// }
 
 	// function searchBox(name) {
 	// 	return (
@@ -30,26 +20,24 @@ function Search({ guestList, setGuestList }) {
 		event.preventDefault(); 
 		//wait can i search the whole name wiht just the name? 
 		//use one setSearch to test about abstracting one thing
-		setInputText(guestList.filter(name => name.toLowerCase().includes(inputText.toLowerCase())))
+		setInputText(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
 
-		// console.log(names.console.log(searchBox))
-		
+
 	}
 
-	function handleChange(event) {
+	function handleChangeSearch(event) {
 		setInputText(event.target.value)
 	}
 
 	return (
-		// <form onSubmit={ handleSubmit }>
-		<form>
+		<form onSubmit={ handleSubmitSearch }>
 			<input 
 				type="text" 
 				name="inputText" 
 				id="inputText" 
 				value={ inputText } 
 				placeholder="Search guest..."
-				// onChange={ handleChange } 
+				onChange={ handleChangeSearch } 
 			/>
 			<input 
 				type="submit" 

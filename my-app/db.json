@@ -1,20 +1,76 @@
 {
   "weddingGuests": [
     {
-      "name": "Joe",
-      "attendance": "Declined",
-      "email": "",
-      "phone": "",
-      "notes": "",
+      "name": "Abby",
+      "attendance": "Invited",
+      "email": "email@gmail.com",
+      "phone": "234908320",
+      "notes": "whatever",
       "id": 1
     },
     {
-      "name": "Christina",
-      "attendance": "Invited",
-      "email": "fake@email.com",
-      "phone": "0329584908",
-      "notes": "dummy test",
+      "name": "Joe",
+      "attendance": "Attending",
+      "email": "joe@gamil.com",
+      "phone": "349258420958",
+      "notes": "whocares",
       "id": 2
+    },
+    {
+      "name": "Liz",
+      "attendance": "Declined",
+      "email": "email@gmail.com",
+      "phone": "2409353209",
+      "notes": "whatever",
+      "id": 3
+    },
+    {
+      "name": "Tom",
+      "attendance": "Attending",
+      "email": "thomas@gmail.com",
+      "phone": "34038",
+      "notes": "whatever",
+      "id": 4
+    },
+    {
+      "name": "Xavier",
+      "attendance": "Attending",
+      "email": "x@gmail.com",
+      "phone": "309482398",
+      "notes": "laksdjfsdf",
+      "id": 5
+    },
+    {
+      "name": "Billy",
+      "attendance": "Declined",
+      "email": "dk@gmail.com",
+      "phone": "3048308",
+      "notes": "dlkwhatever",
+      "id": 6
+    },
+    {
+      "name": "Carol",
+      "attendance": "Invited",
+      "email": "c2@gmail.com",
+      "phone": "1238429",
+      "notes": "whatever",
+      "id": 7
+    },
+    {
+      "name": "Greg",
+      "attendance": "Declined",
+      "email": "greg@gmail.com",
+      "phone": "390842398",
+      "notes": "whatever",
+      "id": 8
+    },
+    {
+      "name": "Kim",
+      "attendance": "Not Invited",
+      "email": "k@gmail.com",
+      "phone": "234083089",
+      "notes": "whatever",
+      "id": 9
     }
   ]
 }

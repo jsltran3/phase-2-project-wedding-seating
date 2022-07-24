@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <NavBar />
         <Routes>
-          <Route path="/GuestPage" element={ <GuestPage/>} />
+          <Route path="/GuestPage" element={ <GuestPage/> } />
           <Route path="/" element={ <Home/> } />
         </Routes>
     </div>

@@ -2,22 +2,67 @@ import React, { useEffect, useState } from "react";
 import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
-import Search from "./Search";
+// import Search from "./Search";
 
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
-
+	//search shit
+	const [inputText, setInputText] = useState("");
 	 
 
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
 			.then((resp) => resp.json())
-			.then((guestList) => setGuestList(guestList));
+			.then((guests) => { 
+				setInputText(guestList)
+				setGuestList(guests)
+			});
 	}, []);
 
-	useEffect(() => console.log(guestList.map(guest => guest.name)))
 
+
+	// search shit
+	// useEffect(() => {
+  //   setInputText(guestList)
+	// 	// console.log(guestList)
+  // }, [ guestList ])
+
+	//search s hit
+	// function handleSubmitSearch(event) {
+	// 	event.preventDefault(); 
+
+	// 	setInputText(guestList.filter(
+	// 		function searchGuest(guest) {
+	// 		if (inputText == "") {
+	// 			return guest
+	// 		} else if (guest.name.toLowerCase().includes(inputText.toLowerCase())) {
+	// 			return guest
+	// 		}
+	// 	}))
+	// }
+	function handleSetInput(event) {
+		event.preventDeafult()
+		
+	}
+
+
+	//search shit
+	function handleSubmitSearch(event) {
+		event.preventDefault(); 
+
+		setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
+
+	}
+	useEffect(() => console.log(guestsToDisplay.map(guest => guest.name)))
+
+	function handleChangeSearch(event) {
+		setInputText(event.target.value)
+	}
+
+	//searchshit
+	// const displaySearchInput = 
+		
 	function handleAttendanceChange(rsvpStatus) {
 		setSelectAttendance(rsvpStatus)
 	}
@@ -29,17 +74,13 @@ function GuestPage() {
 	
 	function handleAddGuest(newguest) {
 		setGuestList([...guestList, newguest]);
-	};
-
-
+	}
+	
 	const guestsToDisplay = guestList.filter((guest => {
 		if (selectAttendance === "All") return true;
 
 		return guest.attendance === selectAttendance;
 	}));
-
-	const searchGuestDisplay = guestList.filter(guest => guest);
-	
 
 	return (
 		<div>
@@ -51,6 +92,20 @@ function GuestPage() {
 				selectAttendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}
 			/>
+			<form onSubmit={ handleSubmitSearch }>
+				<input 
+					type="text" 
+					name="inputText" 
+					id="inputText" 
+					value={ inputText } 
+					placeholder="Search guest..."
+					onChange={ handleChangeSearch } 
+				/>
+				<input 
+					type="submit" 
+					value="search" 
+				/>
+		</form>
 			<h3>Guest List Card</h3>
 			<ul>
 				{guestsToDisplay.map((guest) => (
@@ -64,31 +119,19 @@ function GuestPage() {
 					/>
 				))
 				}
+
 			</ul>
-			{/* {searchGuestDisplay.map((guest) => ( 
-				<Search 
-					guest={guestList} 
-					setGuestList={setGuestList}
-				/>
-			))}  */}
-			<Search
+			
+			{/* <Search
 				guestList={guestList}
 				setGuestList={setGuestList}
-			/>
+			/> */}
+
 			
-			{/* {guestList.map((guest) => {
-				console.log({ guest })
-				return (
-					<p key={guest.id}>
-						{guest.name}
-						
-					</p>
-				)
-			})} */}
 			<footer>Footer: Maybe instructions at the bottom or something</footer>
 		</div>
 	)
 }
 
 
-export default GuestPage; 
+export default GuestPage;
