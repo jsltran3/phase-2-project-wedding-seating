@@ -44,6 +44,7 @@ function CreateNewGuest({ onAddGuest }) {
 
 					setFormInput({
 			name: "",
+      attendance: "Invited",
 			email: "",
 			phone: "",
 			notes: ""
