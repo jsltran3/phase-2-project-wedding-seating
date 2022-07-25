@@ -17,13 +17,8 @@ function Guests({ guest, name, id, onDeleteGuests }) {
       <ul>
         <li>
           <span>{name}</span>
-          {/* <button onClick={event => handleDeleteClick(event)}>Delete</button> */}
           <button onClick={handleDeleteClick}>Delete</button>
-          {/* <span>{guests.attendance}</span>
-          <button onClick={handleDeleteClick}>Delete</button> */}
-          {/* {guestCards.map((guest) => (
-            guest.name
-          ))} */}
+
         </li>
       </ul>
 

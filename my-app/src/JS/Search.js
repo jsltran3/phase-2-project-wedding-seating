@@ -1,27 +1,39 @@
 import React, { useState, useEffect } from "react";
 
-function Search({ guestList, setGuestList }) {
+function Search({ guestList, setGuestList, guestsToDisplay }) {
 	const [inputText, setInputText] = useState("")
-
-	//may not do anything
-	useEffect(() => {
-		fetch("http://localhost:4000/weddingGuests")
-			.then((resp) => resp.json())
-			.then((guests) => { 
-				setInputText(guestList)
-				setGuestList(guests)
-			});
-	}, []);
 
 	function handleSubmitSearch(event) {
 		event.preventDefault(); 
 
+		// let filteredGuests = () => setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
+		// if (inputText ==="" && inputText != guest.name) {
+		// 	return guestList
+		// } else {
+		// 	filteredGuests
+		// }
 		setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
+		setInputText("")
+	// const	filteredGuestInput = guest => guest.name.toLowerCase().includes(inputText.toLowerCase())
+
+	// setGuestList(filteredGuestInput(inputText))
+
+		// setGuestList(guestList.filter((guest) => {
+		// 	if (inputText == guest.name) return true;
+			
+		// 	} else (inputText !=== undefined || inputText !== guest.name) {
+		// 		return filteredGuestInput
+		// 	}	
+		// 	}))
 
 	}
 
-	function handleChangeSearch(event) {
-		setInputText(event.target.value)
+
+
+	function handleInputSearch(event) {
+		let lowerCaseInput = event.target.value.toLowerCase();
+		setInputText(lowerCaseInput)
+		
 	}
 
 	return (
@@ -32,14 +44,14 @@ function Search({ guestList, setGuestList }) {
 			id="inputText" 
 			value={ inputText } 
 			placeholder="Search guest..."
-			onChange={ handleChangeSearch } 
+			onChange={ handleInputSearch } 
 		/>
 		<input 
 			type="submit" 
 			value="search" 
 		/>
-</form>
-		)
+		</form>
+	)
 }
 
 export default Search

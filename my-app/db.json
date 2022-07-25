@@ -9,22 +9,6 @@
       "id": 2
     },
     {
-      "name": "Liz",
-      "attendance": "Declined",
-      "email": "email@gmail.com",
-      "phone": "2409353209",
-      "notes": "whatever",
-      "id": 3
-    },
-    {
-      "name": "Tom",
-      "attendance": "Attending",
-      "email": "thomas@gmail.com",
-      "phone": "34038",
-      "notes": "whatever",
-      "id": 4
-    },
-    {
       "name": "Xavier",
       "attendance": "Attending",
       "email": "x@gmail.com",
@@ -63,6 +47,14 @@
       "phone": "234083089",
       "notes": "whatever",
       "id": 9
+    },
+    {
+      "name": "asdf",
+      "attendance": "Invited",
+      "email": "",
+      "phone": "",
+      "notes": "",
+      "id": 10
     }
   ]
 }
