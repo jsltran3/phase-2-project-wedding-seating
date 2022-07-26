@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import styled from 'styled-components'
 
 function CreateNewGuest({ onAddGuest }) {
-
   const [attendance, setAttendance] = useState("Invited");
   const [formInput, setFormInput] = useState({
     name: "",
@@ -51,10 +51,17 @@ function CreateNewGuest({ onAddGuest }) {
 					})
 		
 	}
+
+  const Wrapper = styled.section`
+    padding: 4em;
+    background: #F4F4F4;
+  `;
+
+  
 			
   return (
     <div>
-      <button type="button">Go back</button>
+      <Wrapper>
       <h2>New Guest</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -106,6 +113,7 @@ function CreateNewGuest({ onAddGuest }) {
         <option value="Attending">Attending</option>
         <option value="Declined">Declined</option>
       </select>
+      </Wrapper>
     </div>
   );
 }
