@@ -8,6 +8,8 @@ import styled from 'styled-components'
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
+	//search
+	const [searchTerm, setSearchTerm] = useState("")
 	 
 	//passed down search
 	useEffect(() => {
@@ -15,7 +17,6 @@ function GuestPage() {
 			.then((resp) => resp.json())
 			.then((guests) => { 
 				setGuestList(guests)
-				// setInputText(guestList)
 			});
 	}, []);
 
@@ -45,25 +46,38 @@ function GuestPage() {
 
 	function handleRefreshSubmit(event) {
 		event.preventDefault(event);
-		window.location.reload(false);
+		// window.location.reload(false);
+		// setGuestList(event)
   
 	}
 	
-	const guestsToDisplay = guestList.filter((guest => {
-		if (selectAttendance === "All") return true;
 
-		return guest.attendance === selectAttendance;
-	}));
+	//category
+	// const guestsToDisplay = guestList.filter((guest => {
+	// 	if (selectAttendance === "All") return true;
 
-	const filteredDisplayedGuest = guestsToDisplay.map((guest) => (
-		<Guests
-			guest={guestList}
-			name={guest.name}
-			key={guest.id}
-			id={guest.id}
-			onDeleteGuests={handleDeleteGuest}
-		/>
-	))
+	// 	return guest.attendance === selectAttendance;
+	// }));
+
+	//batching q all states
+	const filteredGuest = () => {
+		// const lowerCaseTerm = searchTerm.toLocaleLowerCase()
+		return guestList.filter(guest => {
+		if (searchTerm.toLowerCase() === "" && selectAttendance === "All") return true
+		
+		if (searchTerm.toLowerCase() === guest.name.toLowerCase()) {
+			if(selectAttendance === guest.attendance) {
+				console.log(guest.name)
+				return true
+			} 
+			return true
+		} else if (selectAttendance === guest.attendance) return true
+		
+	
+
+		return false 
+	})
+	};
 
 
 
@@ -74,22 +88,25 @@ function GuestPage() {
 				onAddGuest={handleAddGuest}
 	
 			/>
+
+			<h3>Guest List Card</h3>
+			<Search
+				selectAttendance={selectAttendance}
+				guestList={guestList}
+				setGuestList={setGuestList}
+				searchTerm={searchTerm}
+				setSearchTerm={setSearchTerm}
+				filteredGuest={filteredGuest}
+			/>
+			{/* <form onSubmit={handleRefreshSubmit}>
+				<button  onClick={handleRefreshSubmit} type="button">Refresh List</button>
+			</form> */}
 			<GuestsFilter
 				selectAttendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}
 			/>
-			<h3>Guest List Card</h3>
-			<Search
-				guestList={guestList}
-				setGuestList={setGuestList}
-				guestsToDisplay={guestsToDisplay}
-			/>
-			<form onSubmit={handleRefreshSubmit}>
-				<button  onClick={handleRefreshSubmit} type="button">Refresh List</button>
-			</form>
-			
 			<ul>
-				{/* {guestsToDisplay.map((guest) => (
+				{filteredGuest().map((guest) => (
 					<Guests
 						guest={guestList}
 						name={guest.name}
@@ -97,8 +114,7 @@ function GuestPage() {
 						id={guest.id}
 						onDeleteGuests={handleDeleteGuest}
 					/>
-				))} */}
-				{ filteredDisplayedGuest }
+				))}
 			</ul>
 			
 			<footer>Footer: Maybe instructions at the bottom or something</footer>

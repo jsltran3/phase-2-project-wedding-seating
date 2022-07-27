@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-function Search({ guestList, setGuestList, guestsToDisplay }) {
-	const [inputText, setInputText] = useState("")
+function Search({ guestList, selectAttendance, filteredGuest, setGuestList, searchTerm, setSearchTerm }) {
+	// const [inputText, setInputText] = useState("")
 
 	function handleSubmitSearch(event) {
 		event.preventDefault(); 
 
-		// let filteredGuests = () => setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
-		// if (inputText ==="" && inputText != guest.name) {
-		// 	return guestList
-		// } else {
-		// 	filteredGuests
-		// }
-		setGuestList(guestList.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
-		setInputText("")
-	// const	filteredGuestInput = guest => guest.name.toLowerCase().includes(inputText.toLowerCase())
-
-	// setGuestList(filteredGuestInput(inputText))
-
-		// setGuestList(guestList.filter((guest) => {
-		// 	if (inputText == guest.name) return true;
+		// const filteredGuest = () => {
+		// 	guestList.filter(guest => {
+		// 	if (inputText==="" && selectAttendance === "All") return true
 			
-		// 	} else (inputText !=== undefined || inputText !== guest.name) {
-		// 		return filteredGuestInput
-		// 	}	
-		// 	}))
+		// 	if (inputText === guest.name) {
+		// 		if(selectAttendance === guest.attendance) {
+		// 			return true
+		// 		} 
+		// 	} else if (selectAttendance === guest.attendance) return true
+	
+		// 	return false 
+		// })
+		// };
+		//search term variable that's sending the filtered guest
+		//set variable with a chained filter
+		// setGuestList(filteredGuest.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
+		// setInputText("")
+
 
 	}
 
 
 
-	function handleInputSearch(event) {
+	function handleSearchTerm(event) {
 		let lowerCaseInput = event.target.value.toLowerCase();
-		setInputText(lowerCaseInput)
+		setSearchTerm(lowerCaseInput)
 		
 	}
 
@@ -40,11 +39,11 @@ function Search({ guestList, setGuestList, guestsToDisplay }) {
 		<form onSubmit={ handleSubmitSearch }>
 		<input 
 			type="text" 
-			name="inputText" 
-			id="inputText" 
-			value={ inputText } 
+			name="searchTerm" 
+			id="searchTerm" 
+			value={ searchTerm } 
 			placeholder="Search guest..."
-			onChange={ handleInputSearch } 
+			onChange={ handleSearchTerm } 
 		/>
 		<input 
 			type="submit" 
