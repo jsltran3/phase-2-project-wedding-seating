@@ -3,7 +3,7 @@ import GuestsFilter from "./GuestsFilter";
 import Guests from "./Guests";
 import CreateNewGuest from "./CreateNewGuest";
 import Search from "./Search";
-import styled from 'styled-components'
+
 
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
@@ -19,17 +19,6 @@ function GuestPage() {
 				setGuestList(guests)
 			});
 	}, []);
-
-	// const recallList = () => useEffect(() => {
-	// 	fetch("http://localhost:4000/weddingGuests")
-	// 		.then((resp) => resp.json())
-	// 		.then((guests) => { 
-	// 			setGuestList(guests)
-	// 			// setInputText(guestList)
-	// 		});
-	// }, []);
-
-	// useEffect(() => console.log(guestsToDisplay.map(guest => guest.name)))
 		
 	function handleAttendanceChange(rsvpStatus) {
 		setSelectAttendance(rsvpStatus)
@@ -50,18 +39,9 @@ function GuestPage() {
 		// setGuestList(event)
   
 	}
-	
-
-	//category
-	// const guestsToDisplay = guestList.filter((guest => {
-	// 	if (selectAttendance === "All") return true;
-
-	// 	return guest.attendance === selectAttendance;
-	// }));
 
 	//batching q all states
 	const filteredGuest = () => {
-		// const lowerCaseTerm = searchTerm.toLocaleLowerCase()
 		return guestList.filter(guest => {
 		if (searchTerm.toLowerCase() === "" && selectAttendance === "All") return true
 		

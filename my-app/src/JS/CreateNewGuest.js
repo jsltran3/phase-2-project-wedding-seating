@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from 'styled-components'
 
 function CreateNewGuest({ onAddGuest }) {
   const [attendance, setAttendance] = useState("Invited");

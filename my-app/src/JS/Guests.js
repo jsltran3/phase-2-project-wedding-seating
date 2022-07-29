@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components'
+
 
 function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGuests }) {
 
@@ -16,9 +16,11 @@ function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGues
 
   return (
     <div className="guest-container">
-
-      <span className="guest-label">Name:</span>
-      {name}
+      <div>
+        <span className="guest-label">Name:</span>
+        {name}
+      </div>
+  
   
 
       <span className="guest-label">RSVP Status: </span>
