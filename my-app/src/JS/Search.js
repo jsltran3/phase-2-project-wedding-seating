@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 
-function Search({ guestList, selectAttendance, filteredGuest, setGuestList, searchTerm, setSearchTerm }) {
-	// const [inputText, setInputText] = useState("")
+function Search({ searchTerm, setSearchTerm }) {
 
-	function handleSubmitSearch(event) {
-		event.preventDefault(); 
 
-		// const filteredGuest = () => {
-		// 	guestList.filter(guest => {
-		// 	if (inputText==="" && selectAttendance === "All") return true
+	// function handleSubmitSearch(event) {
+	// 	event.preventDefault(); 
+
+	// 	// const filteredGuest = () => {
+	// 	// 	guestList.filter(guest => {
+	// 	// 	if (inputText==="" && selectAttendance === "All") return true
 			
-		// 	if (inputText === guest.name) {
-		// 		if(selectAttendance === guest.attendance) {
-		// 			return true
-		// 		} 
-		// 	} else if (selectAttendance === guest.attendance) return true
+	// 	// 	if (inputText === guest.name) {
+	// 	// 		if(selectAttendance === guest.attendance) {
+	// 	// 			return true
+	// 	// 		} 
+	// 	// 	} else if (selectAttendance === guest.attendance) return true
 	
-		// 	return false 
-		// })
-		// };
-		//search term variable that's sending the filtered guest
-		//set variable with a chained filter
-		// setGuestList(filteredGuest.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
-		// setInputText("")
+	// 	// 	return false 
+	// 	// })
+	// 	// };
+	// 	//search term variable that's sending the filtered guest
+	// 	//set variable with a chained filter
+	// 	// setGuestList(filteredGuest.filter(guest => guest.name.toLowerCase().includes(inputText.toLowerCase())))
+	// 	// setInputText("")
 
 
-	}
+	// }
 
 
 
@@ -36,7 +36,7 @@ function Search({ guestList, selectAttendance, filteredGuest, setGuestList, sear
 	}
 
 	return (
-		<form onSubmit={ handleSubmitSearch }>
+		<form >
 		<input 
 			type="text" 
 			name="searchTerm" 
@@ -44,10 +44,6 @@ function Search({ guestList, selectAttendance, filteredGuest, setGuestList, sear
 			value={ searchTerm } 
 			placeholder="Search guest..."
 			onChange={ handleSearchTerm } 
-		/>
-		<input 
-			type="submit" 
-			value="search" 
 		/>
 		</form>
 	)

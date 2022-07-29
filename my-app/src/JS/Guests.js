@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
 
-function Guests({ guest, name, id, onDeleteGuests }) {
+function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGuests }) {
 
   function handleDeleteClick() {
     fetch(`http://localhost:4000/weddingGuests/${id}`, {
@@ -15,13 +15,24 @@ function Guests({ guest, name, id, onDeleteGuests }) {
   }
 
   return (
-      <ul>
-        <li>
-          <span>{name}</span>
-          <button onClick={handleDeleteClick}>Delete</button>
+    <div className="guest-container">
 
-        </li>
-      </ul>
+      <span className="guest-label">Name:</span>
+      {name}
+  
+
+      <span className="guest-label">RSVP Status: </span>
+      {attendance}
+      <span className="guest-label">Email: </span>
+      {email}
+      <span className="guest-label">Phone: </span>
+      {phone}
+
+      
+
+      <button onClick={handleDeleteClick}>Delete</button>
+
+    </div>
 
   )
 }

@@ -9,7 +9,7 @@ function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
 	//search
-	const [searchTerm, setSearchTerm] = useState("")
+	const [searchTerm, setSearchTerm] = useState("");
 	 
 	//passed down search
 	useEffect(() => {
@@ -73,8 +73,6 @@ function GuestPage() {
 			return true
 		} else if (selectAttendance === guest.attendance) return true
 		
-	
-
 		return false 
 	})
 	};
@@ -98,9 +96,6 @@ function GuestPage() {
 				setSearchTerm={setSearchTerm}
 				filteredGuest={filteredGuest}
 			/>
-			{/* <form onSubmit={handleRefreshSubmit}>
-				<button  onClick={handleRefreshSubmit} type="button">Refresh List</button>
-			</form> */}
 			<GuestsFilter
 				selectAttendance={selectAttendance}
 				onAttendanceChange={handleAttendanceChange}
@@ -112,6 +107,9 @@ function GuestPage() {
 						name={guest.name}
 						key={guest.id}
 						id={guest.id}
+						phone={guest.phone}
+						notes={guest.notes}
+						attendance={guest.attendance}
 						onDeleteGuests={handleDeleteGuest}
 					/>
 				))}
