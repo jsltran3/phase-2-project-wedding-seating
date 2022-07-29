@@ -95,7 +95,7 @@ function GuestPage() {
 				))}
 			</ul>
 			
-			<footer>Footer: Maybe instructions at the bottom or something</footer>
+			
 		</div>
 	)
 }

@@ -5,6 +5,7 @@ import GuestPage from "./JS/GuestPage.js";
 import Home from "./JS/Home"
 import WeddingTips from "./JS/WeddingTips"
 import { Route, Routes } from "react-router-dom";
+import './index.css';
 
 
 function App() {

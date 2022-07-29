@@ -5,22 +5,65 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F6E4F6;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
 }
 
 .guest-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #C98986;
+  width: 300px;
+  margin: 20px;
+  align-items: center;
+  background-color: #F4F4F4;
+  box-sizing: border-box;
+  float: left;
+  
 }
 
 .guest-label {
   font-weight: 600;
   margin-right: 8px;
+  color: #8B575C;
+  text-align: left;
 }
+
+.float-child {
+  width: 50%;
+  float: inline-start;
+  padding: 10px;
+  border: 2px solid red;
+}
+
+/* 
+const Wrapper = styled.section`
+padding: 4em;
+background: #F4F4F4;
+`;
+
+const Button = styled.button`
+Adapt the colors based on primary prop 
+background: ${props => props.primary ? "palevioletred" : "white"};
+color: ${props => props.primary ? "white" : "palevioletred"};
+
+font-size: 1em;
+margin: 1em;
+padding: 0.25em 1em;
+border: 2px solid palevioletred;
+border-radius: 3px;
+`; 
+*/
+
+/* const Wrapper = styled.section`
+padding: 4em;
+background: papayawhip;
+`; */

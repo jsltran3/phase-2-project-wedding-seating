@@ -1,17 +1,9 @@
 import React, { useEffect } from "react";
-import styled from 'styled-components'
+
 
 function Home() {
-    const Title = styled.h1`
-        font-size: 1.5em;
-        text-align: center;
-        color: palevioletred;
-    `;
 
-    const Wrapper = styled.section`
-        padding: 4em;
-        background: papayawhip;
-    `;
+
 
     //needa know what page i'm on 
     useEffect(
@@ -23,8 +15,8 @@ function Home() {
     console.log("Component rendering");
     return (
         <div>
-            <Wrapper>
-            <Title>Perfect Wedding Guest</Title>
+   
+            <h1>Perfect Wedding Guest</h1>
             <h2>Seating Made Easy</h2>
             <p>Instructions:</p>
             <ol type="1">
@@ -33,7 +25,7 @@ function Home() {
                 <li>Submit</li>
                 <li>Filter by RSVP Attendance or Delete Guests</li>
             </ol>
-            </Wrapper>
+           
         </div>
 
     )

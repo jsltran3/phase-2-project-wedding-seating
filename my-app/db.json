@@ -31,6 +31,14 @@
       "phone": "",
       "notes": "",
       "id": 10
+    },
+    {
+      "name": "Jessica",
+      "attendance": "Invited",
+      "email": "jess@gmail.com",
+      "phone": "4080-123-8299",
+      "notes": "Good friend of groom",
+      "id": 11
     }
   ]
 }
