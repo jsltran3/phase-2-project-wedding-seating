@@ -19,15 +19,15 @@ code {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #C98986;
-  width: 300px;
+  width: 210px;
   margin: 20px;
   align-items: center;
   background-color: #F4F4F4;
-  box-sizing: border-box;
+  box-sizing: content-box;
   float: left;
-  
+  flex-wrap: wrap;
 }
 
 .guest-label {
@@ -36,34 +36,118 @@ code {
   color: #8B575C;
   text-align: left;
 }
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-flow: row;
+  padding: 1px;
+  margin: 10px 20px;
+  background: #aa6a71;
+  font-weight: bold;
+  /* row-gap: 10px; */
+  color: white;
+  /* margin-right: 100px;
+  margin-left: 100px; */
+}
 
-.float-child {
-  width: 50%;
-  float: inline-start;
-  padding: 10px;
-  border: 2px solid red;
+.navbar a {
+  float: left;
+  padding: 9px;
+  color: #F4F4F4;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: justify; /* If you want the text to be centered */
+}
+
+/* .navbar a:hover {
+  background-color: #000;
+} */
+
+.navbar a.active {
+  background-color: #F6BDD1;
+  display: flex;
+  margin: 5px 5px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 90%;
+    text-align: left; /* If you want the text to be left-aligned on small screens */
+   
+  }
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 1px;
+  line-height: 2rem;
+  align-items: center;  
+}
+
+.tips {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 1px;
+  line-height: 2rem;
+  align-items: center;  
+  text-align: left;
+}
+
+.text-input {
+  background-color: yellow;
+  box-shadow: inset #abacaf 0 0 0 2px;
+border: 0;
+background: rgba(0, 0, 0, 0);
+appearance: none;
+width: 100%;
+position: relative;
+border-radius: 3px;
+padding: 9px 12px;
+line-height: 1.4;
+color: rgb(0, 0, 0);
+font-size: 16px;
+font-weight: 400;
+height: 40px;
+transition: all .2s ease;
+:hover{
+    box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+}
+:focus{
+    background: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+}
+
 }
 
 /* 
-const Wrapper = styled.section`
-padding: 4em;
-background: #F4F4F4;
-`;
-
-const Button = styled.button`
-Adapt the colors based on primary prop 
-background: ${props => props.primary ? "palevioletred" : "white"};
-color: ${props => props.primary ? "white" : "palevioletred"};
-
-font-size: 1em;
-margin: 1em;
-padding: 0.25em 1em;
-border: 2px solid palevioletred;
+box-shadow: inset #abacaf 0 0 0 2px;
+border: 0;
+background: rgba(0, 0, 0, 0);
+appearance: none;
+width: 100%;
+position: relative;
 border-radius: 3px;
-`; 
-*/
-
-/* const Wrapper = styled.section`
-padding: 4em;
-background: papayawhip;
-`; */
+padding: 9px 12px;
+line-height: 1.4;
+color: rgb(0, 0, 0);
+font-size: 16px;
+font-weight: 400;
+height: 40px;
+transition: all .2s ease;
+:hover{
+    box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 2px;
+}
+:focus{
+    background: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0 #fff inset, #1de9b6 0 0 0 3px;
+} */

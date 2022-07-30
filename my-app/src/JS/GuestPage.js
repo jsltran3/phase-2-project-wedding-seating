@@ -33,13 +33,6 @@ function GuestPage() {
 		setGuestList(updatedGuests)
   }
 
-	function handleRefreshSubmit(event) {
-		event.preventDefault(event);
-		// window.location.reload(false);
-		// setGuestList(event)
-  
-	}
-
 	//batching q all states
 	const filteredGuest = () => {
 		return guestList.filter(guest => {
@@ -91,6 +84,7 @@ function GuestPage() {
 						notes={guest.notes}
 						attendance={guest.attendance}
 						onDeleteGuests={handleDeleteGuest}
+						email={guest.email}
 					/>
 				))}
 			</ul>

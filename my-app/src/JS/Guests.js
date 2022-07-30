@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGuests }) {
 
+  useEffect(() => {
+		fetch("http://localhost:4000/weddingGuests")
+			.then((resp) => resp.json())
+			.then(() => { 
+				console.log(email)
+			});
+	}, []);
 
   function handleDeleteClick() {
     fetch(`http://localhost:4000/weddingGuests/${id}`, {
@@ -15,7 +22,7 @@ function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGues
 
   return (
     <div className="guest-container">
-      <div class="float-child">
+      <div className="float-child">
         <span className="guest-label">Name:</span>
         {name}
       </div>

@@ -19,13 +19,12 @@ function Home() {
             <h1>Perfect Wedding Guest</h1>
             <h2>Seating Made Easy</h2>
             <p>Instructions:</p>
-            <ol type="1">
+            <div className="instructions">
                 <li>Fill out Name, Email, Phone Number, and Notes</li>
                 <li>Select Status</li>
                 <li>Submit</li>
                 <li>Filter by RSVP Attendance or Delete Guests</li>
-            </ol>
-           
+            </div>
         </div>
 
     )

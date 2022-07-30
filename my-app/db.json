@@ -1,44 +1,44 @@
 {
   "weddingGuests": [
     {
-      "name": "Joe",
-      "attendance": "Attending",
-      "email": "joe@gamil.com",
-      "phone": "349258420958",
-      "notes": "whocares",
+      "name": "Joe Tran",
+      "attendance": "Invited",
+      "email": "joe@gmail.com",
+      "phone": "408-780-7037",
+      "notes": "BIL",
+      "id": 1
+    },
+    {
+      "name": "Liz Castillo",
+      "attendance": "Invited",
+      "email": "liz@castillo.com",
+      "phone": "381-214-2819",
+      "notes": "Groom's friend",
       "id": 2
     },
     {
-      "name": "Greg",
-      "attendance": "Declined",
-      "email": "greg@gmail.com",
-      "phone": "390842398",
-      "notes": "whatever",
-      "id": 8
-    },
-    {
-      "name": "Kim",
+      "name": "Abby Ales",
       "attendance": "Not Invited",
-      "email": "k@gmail.com",
-      "phone": "234083089",
-      "notes": "whatever",
-      "id": 9
+      "email": "abby@yahoo.com",
+      "phone": "123-890-3890",
+      "notes": "Cousin",
+      "id": 3
     },
     {
-      "name": "Maddy",
-      "attendance": "Invited",
-      "email": "",
-      "phone": "",
-      "notes": "",
-      "id": 10
+      "name": "Butch Jenkins",
+      "attendance": "Attending",
+      "email": "super@email.com",
+      "phone": "308-380-3797",
+      "notes": "Co-worker",
+      "id": 4
     },
     {
-      "name": "Jessica",
-      "attendance": "Invited",
-      "email": "jess@gmail.com",
-      "phone": "4080-123-8299",
-      "notes": "Good friend of groom",
-      "id": 11
+      "name": "Kim Kass",
+      "attendance": "Attending",
+      "email": "kim@email.com",
+      "phone": "280-380-3712",
+      "notes": "Family friend",
+      "id": 5
     }
   ]
 }
