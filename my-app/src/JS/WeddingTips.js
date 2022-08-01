@@ -4,7 +4,7 @@ function WeddingTips() {
     return  (
         <div className="tips">
             <h1>Tips On How to Put Together a Wedding Guest List </h1>
-            <h2>Advice from Planning Essentials</h2>
+            <h2>Advice from wedding planners of Hitched</h2>
             <p>Some tips</p> 
             <ul>
                 <li>
@@ -20,8 +20,10 @@ function WeddingTips() {
                 Consider Your Parents’ Input 
                 </li>    
                 <li>
-                And more... 
-                </li>    
+                <a href="https://www.hitched.co.uk/wedding-planning/organising-and-planning/wedding-guest-list/" target="_blank">And more... </a>
+            
+                </li>
+                    
             </ul>   
         </div>
 

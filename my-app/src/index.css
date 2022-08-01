@@ -103,10 +103,12 @@ code {
   display: block;  
   margin: auto;
   align-content: space-between;
+  text-align: center justify;
 } 
 
 input {
   color: yellow;
+  text-align: center;
 }
 
 
