@@ -59,20 +59,23 @@ function CreateNewGuest({ onAddGuest }) {
   
       <h2>New Guest</h2>
       <div>
-      <form className="text-input" onSubmit={handleSubmit}>
-        <label className="input-box">
-          Name:
+      <form onSubmit={handleSubmit}>
+        <label className="text-input" >
+          Name:  
           <input
+            className="name-box"
 						id="name"
             type="name"
             name="name"
             value={formInput.name}
             onChange={handleFormInputChange}
           />
+
         </label>
-        <label>
+        <label className="text-input" >
           Email:
-          <input
+          <input 
+            className="name-box"
 						id="email"
             type="email"
             name="email"
@@ -80,9 +83,10 @@ function CreateNewGuest({ onAddGuest }) {
             onChange={handleFormInputChange}
           />
         </label>
-        <label>
+        <label className="text-input" >
           Phone Number:
-          <input
+          <input 
+            className="name-box"
 						id="phone"
             type="phone"
             name="phone"
@@ -90,9 +94,10 @@ function CreateNewGuest({ onAddGuest }) {
             onChange={handleFormInputChange}
           />
         </label>
-        <label>
+        <label className="text-input" >
           Notes:
-          <input
+          <input 
+            className="name-box"
 						id="notes"
             type="notes"
             name="notes"
@@ -100,15 +105,14 @@ function CreateNewGuest({ onAddGuest }) {
             onChange={handleFormInputChange}
           />
         </label>
-          {/* <Button type="submit">Normal</Button>
-          <Button primary type="submit">Primary</Button> */}
-        <button type="submit">Submit</button>
+        
         <select name="attendance" value={attendance} onChange={handleRsvpChange}>
         <option value="Not Invited">Not Invited</option>
         <option value="Invited">Invited</option>
         <option value="Attending">Attending</option>
         <option value="Declined">Declined</option>
       </select>
+      <button type="submit">Submit</button>
       </form>
 
 

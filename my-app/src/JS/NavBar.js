@@ -6,11 +6,11 @@ function NavBar() {
     
     return (
         <div className="navbar">
-            <a>
+            <p>
             <NavLink to="/" >Home</NavLink>
             <NavLink to="/GuestPage">Guest Page</NavLink>
             <NavLink to="/WeddingTips">Wedding Tips</NavLink>
-            </a>
+            </p>
             
 
         </div>
