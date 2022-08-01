@@ -29,8 +29,8 @@ function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGues
         {attendance}
       </div>
       <div>
-      <span className="guest-label">Email: </span>
-      {email}
+        <span className="guest-label">Email: </span>
+        {email}
       </div>
       <div>
         <span className="guest-label">Phone: </span>
@@ -40,9 +40,7 @@ function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGues
         <span className="guest-label">Notes: </span>
         {notes}
       </div>
-
       <button onClick={handleDeleteClick}>Delete</button>
-
     </div>
 
   )
