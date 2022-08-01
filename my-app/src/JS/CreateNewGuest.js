@@ -50,72 +50,74 @@ function CreateNewGuest({ onAddGuest }) {
 					})
 		
 	}
-
-
-  
 			
   return (
     <div>
   
-      <h2>New Guest</h2>
-      <div>
-      <form onSubmit={handleSubmit}>
-        <label className="text-input" >
-          Name:  
-          <input
-            className="name-box"
-						id="name"
-            type="name"
-            name="name"
-            value={formInput.name}
-            onChange={handleFormInputChange}
-          />
+      <h1>Guest Page</h1>
+      <h3>Add New Guest</h3>
+      <div className="alignment-form">
+        <form onSubmit={handleSubmit}>
+          
+          <label className="text-input" >
+            Name:  
+            <input
+              className="name-box"
+              id="name"
+              type="name"
+              name="name"
+              value={formInput.name}
+              onChange={handleFormInputChange}
+            />
 
-        </label>
-        <label className="text-input" >
-          Email:
-          <input 
-            className="name-box"
-						id="email"
-            type="email"
-            name="email"
-            value={formInput.email}
-            onChange={handleFormInputChange}
-          />
-        </label>
-        <label className="text-input" >
-          Phone Number:
-          <input 
-            className="name-box"
-						id="phone"
-            type="phone"
-            name="phone"
-            value={formInput.phone}
-            onChange={handleFormInputChange}
-          />
-        </label>
-        <label className="text-input" >
-          Notes:
-          <input 
-            className="name-box"
-						id="notes"
-            type="notes"
-            name="notes"
-            value={formInput.notes}
-            onChange={handleFormInputChange}
-          />
-        </label>
+          </label>
+
+          <label className="text-input" >
+            Email:
+            <input 
+              className="name-box"
+              id="email"
+              type="email"
+              name="email"
+              value={formInput.email}
+              onChange={handleFormInputChange}
+            />
+          </label>
+
+          <label className="text-input" >
+            Phone Number:
+            <input 
+              className="name-box"
+              id="phone"
+              type="phone"
+              name="phone"
+              value={formInput.phone}
+              onChange={handleFormInputChange}
+            />
+          </label>
+
+          <label className="text-input" >
+            Notes:
+            <input 
+              className="name-box"
+              id="notes"
+              type="notes"
+              name="notes"
+              value={formInput.notes}
+              onChange={handleFormInputChange}
+            />
+          </label>
         
-        <select name="attendance" value={attendance} onChange={handleRsvpChange}>
-        <option value="Not Invited">Not Invited</option>
-        <option value="Invited">Invited</option>
-        <option value="Attending">Attending</option>
-        <option value="Declined">Declined</option>
-      </select>
-      <button type="submit">Submit</button>
-      </form>
+          <select name="attendance" value={attendance} onChange={handleRsvpChange}>
+            <option value="Not Invited">Not Invited</option>
+            <option value="Invited">Invited</option>
+            <option value="Attending">Attending</option>
+            <option value="Declined">Declined</option>
+          </select>
 
-
+          <button className="submit-box" type="submit">Submit</button>
+        </form>
+  
       </div>
     </div>
   );

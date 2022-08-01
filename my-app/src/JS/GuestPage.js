@@ -8,10 +8,8 @@ import Search from "./Search";
 function GuestPage() {
 	const [guestList, setGuestList] = useState([]);
 	const [selectAttendance, setSelectAttendance] = useState("All");
-	//search
 	const [searchTerm, setSearchTerm] = useState("");
 	 
-	//passed down search
 	useEffect(() => {
 		fetch("http://localhost:4000/weddingGuests")
 			.then((resp) => resp.json())
@@ -21,7 +19,7 @@ function GuestPage() {
 	}, []);
 		
 	function handleAttendanceChange(rsvpStatus) {
-		setSelectAttendance(rsvpStatus)
+		setSelectAttendance(rsvpStatus);
 	}
 
 	function handleAddGuest(newguest) {
@@ -30,10 +28,9 @@ function GuestPage() {
 
 	function handleDeleteGuest(id) {
 		const updatedGuests = guestList.filter((guest) => guest.id !== id);
-		setGuestList(updatedGuests)
+		setGuestList(updatedGuests);
   }
 
-	//batching q all states
 	const filteredGuest = () => {
 		return guestList.filter(guest => {
 		if (searchTerm.toLowerCase() === "" && selectAttendance === "All") return true
@@ -50,17 +47,13 @@ function GuestPage() {
 	})
 	};
 
-
-
-
 	return (
 		<div>
 			<CreateNewGuest 
 				onAddGuest={handleAddGuest}
-	
 			/>
 
-			<h3>Guest List Card</h3>
+			<h3>List of Guests</h3>
 			<Search
 				selectAttendance={selectAttendance}
 				guestList={guestList}
@@ -88,11 +81,9 @@ function GuestPage() {
 					/>
 				))}
 			</ul>
-			
-			
+		
 		</div>
 	)
 }
-
 
 export default GuestPage;

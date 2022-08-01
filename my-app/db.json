@@ -39,6 +39,22 @@
       "phone": "280-380-3712",
       "notes": "Family friend",
       "id": 5
+    },
+    {
+      "name": "Claus Fields",
+      "attendance": "Declined",
+      "email": "Fields@email.com",
+      "phone": "548-388-8988",
+      "notes": "Friend",
+      "id": 6
+    },
+    {
+      "name": "Addy Smith",
+      "attendance": "Attending",
+      "email": "Smith@gmail.com",
+      "phone": "482-281-2777",
+      "notes": "Sister",
+      "id": 7
     }
   ]
 }

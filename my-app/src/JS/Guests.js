@@ -16,8 +16,6 @@ function Guests({ guest, name, id, attendance, phone, email, notes, onDeleteGues
     .then((resp) => resp.json())
     // .then(() => console.log(id));
     .then(() => onDeleteGuests(id)) 
-
-  
   }
 
   return (

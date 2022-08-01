@@ -11,8 +11,6 @@ function NavBar() {
             <NavLink to="/GuestPage">Guest Page</NavLink>
             <NavLink to="/WeddingTips">Wedding Tips</NavLink>
             </p>
-            
-
         </div>
     );
 }
